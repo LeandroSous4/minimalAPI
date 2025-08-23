@@ -13,6 +13,11 @@ namespace minimalAPI.Infra.DB
         public DbContexto(IConfiguration configuration){
             _configuracao = configuration;
         }
+        public DbContexto(DbContextOptions<DbContexto> options, IConfiguration? config = null)
+            : base(options)
+        {
+            _configuracao = config;
+        }
         public DbSet<Administrador> Administradores { get; set; } = default!;
         public DbSet<Veiculo> Veiculos { get; set; } = default!;
 
